@@ -8,8 +8,7 @@ $pass=$_POST['pass'];
 $confpass=$_POST['confpass'];
 $email=$_POST['emailid'];
  
-$app->get('/db/', function() use($app) {
-  
+
 $query = "SELECT * FROM userdata WHERE emailid = '{$email}'";
   $st = $app['pdo']->prepare($query);
   $st->execute();
@@ -45,9 +44,6 @@ else{
 //   return $app['twig']->render('database.twig', array(
 //     'names' => $names
 //   ));
-});
-
- 
 
 
 
