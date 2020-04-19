@@ -1,8 +1,8 @@
 <?php
 
-
-header("Location: homepage.php");
-
+echo "HI";
+header("Location: homepage.html");
+exit();
 
 
 ?>
