@@ -9,8 +9,9 @@ $confpass=$_POST['confpass'];
 $email=$_POST['emailid'];
  
 
-$query = "SELECT * FROM userdata WHERE emailid = '{$email}'";
+$query = "SELECT * FROM userdata WHERE emailid = :emaill";
   $st =  $pdo->prepare($query);
+  $stmt->bindValue(':emaill', $email);
   $st->execute();
 
 
@@ -23,7 +24,7 @@ if ($nume == 0){
         
         // pass values to the statement
         $stmt->bindValue(':eml', $email);
-        $stmt->bindValue(':psed', $pass);
+        $stmt->bindValue(':pswd', $pass);
         $stmt->bindValue(':unm', $name);
         
         // execute the insert statement
