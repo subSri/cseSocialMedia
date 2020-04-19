@@ -10,7 +10,7 @@ $email=$_POST['emailid'];
  
 
 $query = "SELECT * FROM userdata WHERE emailid = '{$email}'";
-  $st = $app['pdo']->prepare($query);
+  $st =  $pdo->prepare($query);
   $st->execute();
 
 
@@ -19,7 +19,7 @@ $query = "SELECT * FROM userdata WHERE emailid = '{$email}'";
 if ($nume == 0){
     // mysqli_query($conn,"INSERT INTO userdata VALUES('$email','$name','$pass')");
     $sql = 'INSERT INTO userdata(Email,Username,Passwd) VALUES(:eml,:unm,:pswd)';
-        $stmt = $app['pdo']->pdo->prepare($sql);
+        $stmt = $pdo->prepare($sql);
         
         // pass values to the statement
         $stmt->bindValue(':eml', $email);
@@ -33,7 +33,7 @@ else{
     
 
     echo '<script>alert("Email Id already registered.Check your details.")</script>';
-    echo '<script>window.location.replace("index.php")</script>';
+    echo '<script>window.location.replace("homepage.html")</script>';
 }
 //   $names = array();
 //   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
