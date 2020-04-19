@@ -1,18 +1,34 @@
 <?php include 'connection.php';?>
  
 <?php
- 
+
 // create a variable
 $name=$_POST['username'];
 $pass=$_POST['pass'];
 $confpass=$_POST['confpass'];
 $email=$_POST['emailid'];
  
-
+$app->get('/db/', function() use($app) {
+  
 $query = "SELECT * FROM userdata WHERE emailid = '{$email}'";
-$result = mysqli_query($conn,$query);
-if (mysqli_num_rows($result) == 0){
-    mysqli_query($conn,"INSERT INTO userdata VALUES('$email','$name','$pass')");
+  $st = $app['pdo']->prepare($query);
+  $st->execute();
+
+
+
+  $nume = $st->rowCount();
+if ($nume == 0){
+    // mysqli_query($conn,"INSERT INTO userdata VALUES('$email','$name','$pass')");
+    $sql = 'INSERT INTO userdata(Email,Username,Passwd) VALUES(:eml,:unm,:pswd)';
+        $stmt = $app['pdo']->pdo->prepare($sql);
+        
+        // pass values to the statement
+        $stmt->bindValue(':eml', $email);
+        $stmt->bindValue(':psed', $pass);
+        $stmt->bindValue(':unm', $name);
+        
+        // execute the insert statement
+        $stmt->execute();
 }
 else{
     
@@ -20,6 +36,22 @@ else{
     echo '<script>alert("Email Id already registered.Check your details.")</script>';
     echo '<script>window.location.replace("index.php")</script>';
 }
+//   $names = array();
+//   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+//     $app['monolog']->addDebug('Row ' . $row['name']);
+//     $names[] = $row;
+//   }
+
+//   return $app['twig']->render('database.twig', array(
+//     'names' => $names
+//   ));
+});
+
+ 
+
+
+
+
 
 echo '<script>window.location.href = "index.html"</script>';
 
