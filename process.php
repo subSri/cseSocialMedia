@@ -9,7 +9,7 @@ $confpass=$_POST['confpass'];
 $email=$_POST['emailid'];
  
 
-$query = "SELECT * FROM userdata WHERE Email = :emaill";
+$query = "SELECT * FROM userdata WHERE emailid = :emaill";
   $st =  $pdo->prepare($query);
   $st->bindValue(':emaill', $email);
   $st->execute();
@@ -19,7 +19,7 @@ $query = "SELECT * FROM userdata WHERE Email = :emaill";
   $nume = $st->rowCount();
 if ($nume == 0){
     // mysqli_query($conn,"INSERT INTO userdata VALUES('$email','$name','$pass')");
-    $sql = 'INSERT INTO userdata(Email,Username,Passwd) VALUES(:eml,:unm,:pswd)';
+    $sql = 'INSERT INTO userdata(emailid,username,passwd) VALUES(:eml,:unm,:pswd)';
         $stmt = $pdo->prepare($sql);
         
         // pass values to the statement
