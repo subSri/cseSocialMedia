@@ -9,9 +9,9 @@ $confpass=$_POST['confpass'];
 $email=$_POST['emailid'];
  
 
-$query = "SELECT * FROM userdata WHERE emailid = :emaill";
+$query = "SELECT * FROM userdata WHERE Email = :emaill";
   $st =  $pdo->prepare($query);
-  $stmt->bindValue(':emaill', $email);
+  $st->bindValue(':emaill', $email);
   $st->execute();
 
 
