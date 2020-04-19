@@ -1,6 +1,4 @@
-<!-- ?xml version = "1.0" encoding = "UTF-8"?> -->
-
-<!-- 
+<?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE = "html PUBLIC">
 <html xmlns=" ">
 
@@ -35,8 +33,6 @@
 			</div>
 		</div>
 	</div>
-    </body></html>  -->
+    </body></html> 
 
-	<?php
-	echo "PHP zindabd";
-	?>
+	
