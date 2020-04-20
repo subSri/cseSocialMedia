@@ -1,4 +1,5 @@
-?php include 'connection.php';?>
+<?php include 'connection.php';?>
+<?php include 'index.html';?>
  
 <?php
 
@@ -6,18 +7,22 @@
 
 $loginpass=$_POST['pswd'];
 
-$emailid=$_POST['EmailId'];
+$usr=$_POST['usernm'];
  
 
-$query = "SELECT * FROM userdata WHERE emailid = :emaill AND passwd=:pass";
+$query = "SELECT * FROM userdata WHERE username = :usernm AND passwd=:pass";
   $st =  $pdo->prepare($query);
-  $st->bindValue(':emaill', $emailid);
+  $st->bindValue(':usernm', $usr);
   $st->bindValue(':pass', $loginpass);
   $st->execute();
 
   $cnt = $st->rowCount();
   if ($cnt > 1){
+
     echo '<script>alert("Successfully Logged In.")</script>';
+    // "<script>error = '" . json_encode($error)  . "'</script>"
+    echo "<script> var unm = "<?php echo $usr ; ?>" getElementById('UNAME').innerHTML = unm</script>";
+
     echo '<script>window.location.href = "index.html"</script>';
   }
   else{

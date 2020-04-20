@@ -32,6 +32,7 @@ if ($nume == 0){
         
         // execute the insert statement
         $stmt->execute();
+        echo '<script>alert("Successfully Signed In.")</script>';
   }
   else{
     echo '<script>alert("Same password not entered in Confirm Password Field.")</script>';
@@ -58,6 +59,6 @@ else{
 
 
 
-echo '<script>window.location.href = "index.html"</script>';
+echo '<script>window.location.href = "LoginPage.html"</script>';
 
 ?>
