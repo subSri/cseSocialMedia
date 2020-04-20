@@ -17,16 +17,17 @@
 			</div>
 			<div class="rightact">
                 <div class="myIcon"><img src="blueIcon.jpg" height="30px" width="30px"></div>
-				<form class="block">
+				<form class="block" method = "post" action="handlelogin.php"  enctype = "multipart/form-data">
                     <h3 class="2">LOGIN FORM</h3>
-					<input type="text" placeholder="Enter your Email-id"><br>
-					<input type="Password" placeholder="Enter your Password"><br><br>
+					<input type="text" name="EmailId" placeholder="Enter your Email-id"><br>
+					<input type="Password" name="pswd" placeholder="Enter your Password"><br><br>
 					<input type="submit" class="LoginButton" value="Login"><br><br>
 					
-                    <a href="index.php" style="float:right; margin-right: 50px; font-family: monospace; color:#008CBA;">NEW USER? SIGN UP</a>
+                    <a href="homepage.html" style="float:right; margin-right: 50px; font-family: monospace; color:#008CBA;">NEW USER? SIGN UP</a>
                 </form>
-				
+	
 			</div>
 		</div>
 	</div>
-    </body></html>
+	</body></html>
+	

@@ -18,6 +18,9 @@ $query = "SELECT * FROM userdata WHERE emailid = :emaill";
 
   $nume = $st->rowCount();
 if ($nume == 0){
+  if ($confpass == $pass){
+
+  
     // mysqli_query($conn,"INSERT INTO userdata VALUES('$email','$name','$pass')");
     $sql = 'INSERT INTO userdata(emailid,username,passwd) VALUES(:eml,:unm,:pswd)';
         $stmt = $pdo->prepare($sql);
@@ -29,6 +32,11 @@ if ($nume == 0){
         
         // execute the insert statement
         $stmt->execute();
+  }
+  else{
+    echo '<script>alert("Same password not entered in Confirm Password Field.")</script>';
+    echo '<script>window.location.replace("homepage.html")</script>';
+  }
 }
 else{
     
