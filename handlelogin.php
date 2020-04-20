@@ -21,7 +21,7 @@ $query = "SELECT * FROM userdata WHERE username = :usernm AND passwd=:pass";
 
     echo '<script>alert("Successfully Logged In.")</script>';
     // "<script>error = '" . json_encode($error)  . "'</script>"
-    echo "<script> document.getElementById('UNAME').innerHTML = '" . json_encode($usr)  . "'</script>"
+    // echo "<script> document.getElementById('UNAME').innerHTML = '" . json_encode($usr)  . "'</script>"
 
     echo '<script>window.location.href = "index.html"</script>';
   }
