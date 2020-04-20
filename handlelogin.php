@@ -17,7 +17,7 @@ $query = "SELECT * FROM userdata WHERE username = :usernm AND passwd=:pass";
   $st->execute();
 
   $cnt = $st->rowCount();
-  if ($cnt > 1){
+  if ($cnt >= 1){
 
     echo '<script>alert("Successfully Logged In.")</script>';
     // "<script>error = '" . json_encode($error)  . "'</script>"
@@ -26,6 +26,6 @@ $query = "SELECT * FROM userdata WHERE username = :usernm AND passwd=:pass";
     echo '<script>window.location.href = "index.html"</script>';
   }
   else{
-    echo '<script>alert("No such Email registered.SignUp instead?.")</script>';
-    echo '<script>window.location.replace("LoginPage.html")</script>';
+    echo '<script>alert("No such Username registered. SignUp instead?.")</script>';
+    echo '<script>window.location.href = "LoginPage.html"</script>';
   }
